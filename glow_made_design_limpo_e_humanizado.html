@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Profissional | Davi Emanuel</title>
+  <style>
+    /* Reset & Variáveis Globais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0F172A;
+      color: #F8FAFC;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho de Navegação Fixa */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      border-bottom: 1px solid #1E293B;
+      z-index: 1000;
+    }
+
+    .brand-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #38BDF8;
+      letter-spacing: -0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #38BDF8;
+    }
+
+    /* Estilo de Seção */
+    .page-section {
+      min-height: 100vh;
+      padding: 120px 8% 80px 8%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #94A3B8;
+      font-size: 1rem;
+      margin-bottom: 48px;
+    }
+
+    /* 1. Apresentação Inicial / Hero */
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #1E293B;
+      color: #38BDF8;
+      font-size: 0.875rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid #334155;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+
+    .hero-title span {
+      color: #38BDF8;
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      color: #94A3B8;
+      margin-bottom: 36px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #38BDF8;
+      color: #0F172A;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary {
+      background-color: #1E293B;
+      color: #F8FAFC;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid #334155;
+    }
+
+    /* 2. Sobre Mim */
+    .about-card {
+      background-color: #1E293B;
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #38BDF8;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: #CBD5E1;
+      line-height: 1.8;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+    }
+
+    /* 3. Habilidades */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background-color: #1E293B;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .skill-card h3 {
+      font-size: 1.25rem;
+      color: #38BDF8;
+      margin-bottom: 16px;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      margin-bottom: 12px;
+      color: #CBD5E1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-list li::before {
+      content: "•";
+      color: #38BDF8;
+      font-weight: bold;
+    }
+
+    /* 4. Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background-color: #1E293B;
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background-color: #0F172A;
+      color: #38BDF8;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      border: 1px solid #334155;
+    }
+
+    /* 5. Contato */
+    .contact-container {
+      background-color: #1E293B;
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+
+    .contact-item h4 {
+      color: #38BDF8;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-item p, .contact-item a {
+      color: #CBD5E1;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #0B1120;
+      padding: 32px 8%;
+      border-top: 1px solid #1E293B;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #38BDF8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <header>
+    <div class="brand-logo">DAVI EMANUEL</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre Mim</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 1. Início / Hero -->
+  <section class="page-section" id="inicio">
+    <div class="hero-content">
+      <span class="badge">Estudante de Desenvolvimento Web</span>
+      <h1 class="hero-title">Transformando ideias em <span>interfaces digitais</span> eficientes.</h1>
+      <p class="hero-description">Desenvolvedor Front-end em formação, focado na criação de sites acessíveis, funcionais e com design moderno.</p>
+      <div class="btn-group">
+        <a href="#projetos" class="btn-primary">Ver Meus Projetos</a>
+        <a href="https://github.com/dashboard" target="_blank" class="btn-secondary">Meu GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Sobre Mim com Foto -->
+  <section class="page-section" id="sobre">
+    <h2 class="section-title">Sobre Mim</h2>
+    <p class="section-subtitle">Apresentação do perfil profissional e objetivos</p>
+    
+    <div class="about-card">
+      <img src="https://lh3.googleusercontent.com/d/1w6vWv8FjZ1xH_xU6D_kZzW0n0vY4Y_g" alt="Davi Emanuel" class="profile-photo">
+      <div class="about-text">
+        <p>Olá! Meu nome é <strong>Davi Emanuel</strong>, sou um <strong>jovem estudante</strong> apaixonado por tecnologia e fascinado pelas possibilidades que a internet oferece. Atualmente, meu grande foco é seguir carreira na área de tecnologia e <strong>me formar em desenvolvimento de sites</strong>.</p>
+        <p>Acredito que o desenvolvimento web é a combinação perfeita entre criatividade e lógica. Minha trajetória é pautada pelo aprendizado constante, disciplina na resolução de problemas e a busca contínua pelas melhores práticas de desenvolvimento.</p>
+        <p>Tenho como objetivo profissional ingressar no mercado como Desenvolvedor Web, aplicando meus conhecimentos na construção de layouts modernos e na criação de experiências digitais eficientes e acessíveis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Habilidades -->
+  <section class="page-section" id="habilidades">
+    <h2 class="section-title">Habilidades Técnicas e Interpessoais</h2>
+    <p class="section-subtitle">Conhecimentos práticos e comportamentais</p>
+    
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Hard Skills (Técnicas)</h3>
+        <ul class="skill-list">
+          <li>HTML5 Semântico & CSS3 Responsivo</li>
+          <li>MySQL</li>
+          <li>Banco de Dados</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Soft Skills (Comportamentais)</h3>
+        <ul class="skill-list">
+          <li>Resolução de Problemas e Lógica</li>
+          <li>Comunicação Clara e Trabalho em Equipe</li>
+          <li>Gestão de Tempo e Cumprimento de Prazos</li>
+          <li>Adaptabilidade e Aprendizado Autônomo</li>
+          <li>Atenção aos Detalhes Visuais e de Código</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Projetos -->
+  <section class="page-section" id="projetos">
+    <h2 class="section-title">Projetos Executados</h2>
+    <p class="section-subtitle">Trabalhos e aplicações práticas desenvolvidas</p>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div>
+          <h3>Catálogo Web Responsivo</h3>
+          <p>Desenvolvimento de uma interface para exibição de produtos com layout adaptável para dispositivos móveis.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS Grid</span>
+          </div>
+        </div>
+        <a href="https://github.com/dashboard" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;">Ver Código no GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Modelagem de Banco de Dados</h3>
+          <p>Estruturação e consultas relacionais utilizando MySQL para gerenciamento de dados do sistema.</p>
+          <div class="tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Banco de Dados</span>
+          </div>
+        </div>
+        <a href="https://github.com/dashboard" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;">Ver Projeto no GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Tabela Periódica Interativa</h3>
+          <p>Projeto de estudos com a estrutura completa dos elementos químicos e suas propriedades em tela.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+        <a href="https://github.com/dashboard" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;">Ver Código no GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contato -->
+  <section class="page-section" id="contato">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Canais para conversar sobre projetos e oportunidades</p>
+
+    <div class="contact-container">
+      <div class="contact-item">
+        <h4>E-mail</h4>
+        <p><a href="mailto:davi.emanuelfelix0@gmail.com">davi.emanuelfelix0@gmail.com</a></p>
+      </div>
+      <div class="contact-item">
+        <h4>LinkedIn</h4>
+        <p><a href="https://www.linkedin.com/in/davi-emanuel-ba0791429" target="_blank">www.linkedin.com/in/davi-emanuel-ba0791429</a></p>
+      </div>
+      <div class="contact-item">
+        <h4>GitHub</h4>
+        <p><a href="https://github.com/dashboard" target="_blank">https://github.com/dashboard</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2026 • Desenvolvido por <strong>Davi Emanuel</strong>. Todos os direitos reservados.</p>
+    <p style="margin-top: 8px;">E-mail: <a href="mailto:davi.emanuelfelix0@gmail.com">davi.emanuelfelix0@gmail.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/davi-emanuel-ba0791429" target="_blank">www.linkedin.com/in/davi-emanuel-ba0791429</a> | GitHub: <a href="https://github.com/dashboard" target="_blank">https://github.com/dashboard</a></p>
+  </footer>
+
+</body>
+</html>
